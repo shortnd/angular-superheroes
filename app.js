@@ -32,4 +32,10 @@ var superHeroList = [
 ];
 
 
-angular.module("superApp", [])
+angular
+  .module("superApp", [])
+  .controller("supersCtrl", [ superController ])
+
+function superController() {
+  this.supers = superHeroList;
+}
