@@ -1,34 +1,44 @@
 <!DOCTYPE html>
 <html ng-app="superApp">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <title>Super Hero Phone Number</title>
     <link rel="stylesheet" href="style.css">
-  </head>
-  <body ng-controller="supersCtrl as vm">
+</head>
+
+<body ng-controller="supersCtrl as vm">
     <label for="searchBar">Search: <input class="form-control" id="searchBar" ng-model="searchText"></label>
     <div class={{super.group}} ng-repeat="super in vm.supers | filter: searchText ">
-      <p>{{super.name}}</p>
-      <p>{{super.number}}</p>
-      <button type="button" ng-click="visible = !visible" >Show Picture</button>
-      <img ng-show="visible" src="{{super.img}}">
+        <button type="button" ng-click="editHero = !editHero">Edit Hero</button>
+        <p>{{super.name}}</p>
+        <p>{{super.number}}</p>
+        <button type="button" ng-click="visible = !visible">Show Picture</button>
+        <img ng-show="visible" src="{{super.img}}">
+      <form ng-show="editHero" ng-submit="editHero = false">
+        <label>Name: <input type="text" ng-model="super.name"></label>
+        <label>Phone Number: <input type="text" ng-model="super.number"></label>
+        <label>Group: <input type="text" ng-model="super.group"></label>
+        <label>Img Url: <input type="text" ng-model="super.img"></label>
+        <br>
+        <button class="btn" type="submit">Save</button>
+      </form>
+
     </div>
 
-    <div class="">
-      <label for="">Hero Name: <input type="text" ng-model="vm.newSuperName"></label>
-      <label for="">Phone Number: <input type="text" ng-model="vm.newSuperNumber"></label>
-      <label for="">Group: <input type="text" ng-model="vm.newSuperGroup"></label>
-      <label for="">Image: <input type="text" ng-model="vm.newSuperImg"></label>
-      <button type="button" ng-click="vm.addSuperNew()">Add New Hero</button>
-    </div>
 
-    <h3 class="card-title">User Input</h3>
-        <h4 class="card-title">Name: {{vm.newSuperName}}</h4>
-        <p class="card-title">Phone Number: {{vm.newSuperNumber}}</p>
-        <p class="card-text">Group: {{vm.newSuperGroup}}</p>
-        <p class="card-text">Image Url: {{vm.newSuperImg}}</p>
+    <button type="button" ng-click="newHero = !newHero" ng-show="!newHero">Add New Hero!</button>
+    <form ng-show="newHero" ng-submit="vm.addSuperNew()">
+    <label ng-show=newHero for="">Hero Name: <input ng-show=newHero type="text" ng-model="vm.newSuperName"></label>
+    <label ng-show=newHero for="">Phone Number: <input ng-show=newHero type="text" ng-model="vm.newSuperNumber"></label>
+    <label ng-show=newHero for="">Group: <input ng-show=newHero type="text" ng-model="vm.newSuperGroup"></label>
+    <label ng-show=newHero for="">Image: <input ng-show=newHero type="text" ng-model="vm.newSuperImg"></label>
+    <br>
+    <button type="submit" class="btn" ng-click="newHero = !newHero">Add New Hero</button>
+  </form>
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
     <script src="app.js"></script>
-  </body>
+</body>
+
 </html>

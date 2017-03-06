@@ -44,11 +44,20 @@ function superController() {
       name: this.newSuperName,
       number: this.newSuperNumber,
       group: this.newSuperGroup,
-      img: this. newSuperImg
+      img: this.newSuperImg
     };
     this.supers.push(superHero);
   };
 
+  this.editSuper = function() {
+    var superHero = {
+    name: this.editSuperName,
+    number: this.editSuperNumber,
+    group: this.editSuperGroup,
+    img: this.editSuperImg
+  };
+  this.supers.update();
+};
 
 
 }
