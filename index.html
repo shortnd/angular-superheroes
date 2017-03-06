@@ -10,6 +10,8 @@
     <div class={{super.group}} ng-repeat="super in vm.supers | filter: searchText ">
       <p>{{super.name}}</p>
       <p>{{super.number}}</p>
+      <button type="button" ng-click="visible = !visible" >Show Picture</button>
+      <img ng-show="visible" src="{{super.img}}">
     </div>
 
     <div class="">
@@ -19,6 +21,12 @@
       <label for="">Image: <input type="text" ng-model="vm.newSuperImg"></label>
       <button type="button" ng-click="vm.addSuperNew()">Add New Hero</button>
     </div>
+
+    <h3 class="card-title">User Input</h3>
+        <h4 class="card-title">Name: {{vm.newSuperName}}</h4>
+        <p class="card-title">Phone Number: {{vm.newSuperNumber}}</p>
+        <p class="card-text">Group: {{vm.newSuperGroup}}</p>
+        <p class="card-text">Image Url: {{vm.newSuperImg}}</p>
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
     <script src="app.js"></script>

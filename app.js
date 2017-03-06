@@ -48,4 +48,7 @@ function superController() {
     };
     this.supers.push(superHero);
   };
+
+
+
 }
