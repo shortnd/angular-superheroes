@@ -38,4 +38,14 @@ angular
 
 function superController() {
   this.supers = superHeroList;
+
+  this.addSuperNew = function() {
+    var superHero = {
+      name: this.newSuperName,
+      number: this.newSuperNumber,
+      group: this.newSuperGroup,
+      img: this. newSuperImg
+    };
+    this.supers.push(superHero);
+  };
 }

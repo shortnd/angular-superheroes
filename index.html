@@ -6,9 +6,18 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body ng-controller="supersCtrl as vm">
-    <div class={{super.group}} ng-repeat="super in vm.supers">
+    <label for="searchBar">Search: <input class="form-control" id="searchBar" ng-model="searchText"></label>
+    <div class={{super.group}} ng-repeat="super in vm.supers | filter: searchText ">
       <p>{{super.name}}</p>
       <p>{{super.number}}</p>
+    </div>
+
+    <div class="">
+      <label for="">Hero Name: <input type="text" ng-model="vm.newSuperName"></label>
+      <label for="">Phone Number: <input type="text" ng-model="vm.newSuperNumber"></label>
+      <label for="">Group: <input type="text" ng-model="vm.newSuperGroup"></label>
+      <label for="">Image: <input type="text" ng-model="vm.newSuperImg"></label>
+      <button type="button" ng-click="vm.addSuperNew()">Add New Hero</button>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
