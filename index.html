@@ -3,42 +3,67 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Super Hero Phone Number</title>
+    <title>Super Hero Phone Directory</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body ng-controller="supersCtrl as vm">
-    <label for="searchBar">Search: <input class="form-control" id="searchBar" ng-model="searchText"></label>
-    <div class={{super.group}} ng-repeat="super in vm.supers | filter: searchText ">
-        <button type="button" ng-click="editHero = !editHero">Edit Hero</button>
-        <p>{{super.name}}</p>
-        <p>{{super.number}}</p>
-        <button type="button" ng-click="visible = !visible">Show Picture</button>
-        <img ng-show="visible" src="{{super.img}}">
-      <form ng-show="editHero" ng-submit="editHero = false">
-        <label>Name: <input type="text" ng-model="super.name"></label>
-        <label>Phone Number: <input type="text" ng-model="super.number"></label>
-        <label>Group: <input type="text" ng-model="super.group"></label>
-        <label>Img Url: <input type="text" ng-model="super.img"></label>
-        <br>
-        <button class="btn" type="submit">Save</button>
-      </form>
+    <div class="container">
+        <div class="jumbotron">
+            <h1 class="display-2">Super Hero Phone Directory</h1>
+        </div>
 
+        <label for="searchBar">Search: <input class="form-control" id="searchBar" ng-model="searchText"></label>
+        <div class="{{super.group}} jumbotron" ng-repeat="super in vm.supers | filter: searchText ">
+            <button class="btn btn-secondary" type="button" ng-click="editHero = !editHero">Edit Hero</button>
+            <h2 class="display-4">{{super.name}}</h2>
+            <p>{{super.number}}</p>
+
+            <img ng-show="visible" style="width: 50%" ng-src={{super.img}}>
+            <br>
+            <button class="btn" type="button" ng-click="visible = !visible">Show / Hide Picture</button>
+
+
+
+
+            <form ng-show="editHero" ng-submit="editHero = false">
+                <label>Name: <input type="text" ng-model="super.name"></label>
+                <label>Phone Number: <input type="text" ng-model="super.number"></label>
+                <label>Group: <input type="text" ng-model="super.group"></label>
+                <label>Img Url: <input type="text" ng-model="super.img"></label>
+                <br>
+                <button class="btn" type="submit">Save</button>
+            </form>
+
+        </div>
+
+
+        <button type="button" ng-click="newHero = !newHero" ng-show="!newHero">Add New Hero!</button>
+        <form ng-show="newHero" ng-submit="vm.addSuperNew()">
+            <div class="form-group">
+                <label ng-show=newHero for="">Hero Name: <input ng-show=newHero type="text" ng-model="vm.newSuperName"></label>
+            </div>
+            <div class="form-group">
+                <label ng-show=newHero for="">Phone Number: <input ng-show=newHero type="text" ng-model="vm.newSuperNumber"></label>
+            </div>
+            <div class="form-group">
+                <label ng-show=newHero for="">Group: <input ng-show=newHero type="text" ng-model="vm.newSuperGroup"></label>
+            </div>
+            <div class="form-group">
+                <label ng-show=newHero for="">Image: <input ng-show=newHero type="text" ng-model="vm.newSuperImg"></label>
+            </div>
+            <br>
+            <button type="submit" class="btn" ng-click="newHero = !newHero">Add New Hero</button>
+        </form>
+
+        <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+        <script src="app.js"></script>
     </div>
-
-
-    <button type="button" ng-click="newHero = !newHero" ng-show="!newHero">Add New Hero!</button>
-    <form ng-show="newHero" ng-submit="vm.addSuperNew()">
-    <label ng-show=newHero for="">Hero Name: <input ng-show=newHero type="text" ng-model="vm.newSuperName"></label>
-    <label ng-show=newHero for="">Phone Number: <input ng-show=newHero type="text" ng-model="vm.newSuperNumber"></label>
-    <label ng-show=newHero for="">Group: <input ng-show=newHero type="text" ng-model="vm.newSuperGroup"></label>
-    <label ng-show=newHero for="">Image: <input ng-show=newHero type="text" ng-model="vm.newSuperImg"></label>
-    <br>
-    <button type="submit" class="btn" ng-click="newHero = !newHero">Add New Hero</button>
-  </form>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
-    <script src="app.js"></script>
+    </div>
 </body>
 
 </html>

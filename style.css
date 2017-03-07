@@ -1,3 +1,7 @@
-.Marvel {
-  background: blue;
+.Marvel, .marvel {
+  background: #0275D8;
+}
+.dc, .DC {
+  background: black;
+  color: white;
 }
