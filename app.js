@@ -28,6 +28,66 @@ var superHeroList = [
     number: "800-STA-RLRD",
     group: "Marvel",
     img: "img/Starlord.png"
+  },
+  {
+    name: "Flash",
+    number: "800-GOF-ASTR",
+    group: "DC",
+    img: "img/Flash.png"
+  },
+  {
+    name: "Winter Soldier(Bucky Barns)",
+    number: "800-WNT-SOLD",
+    group: "Marvel",
+    img: "img/Winter-Soldier.png"
+  },
+  {
+    name: "Superman",
+    number: "800-SUP-RMAN",
+    group: "DC",
+    img: "img/Superman.png"
+  },
+  {
+    name: "Wonder Woman",
+    number: "800-WND-WOMN",
+    group: "DC",
+    img: "img/wonder-woman.png"
+  },
+  {
+    name: "Iron Man",
+    number: "800-TNY-STRK",
+    group: "Marvel",
+    img: "img/iron-man.png"
+  },
+  {
+    name: "Green Lantern",
+    number: "800-GRN-LANT",
+    group: "DC",
+    img: "img/The-Green-Lantern.png"
+  },
+  {
+    name: "Captain America",
+    number: "800-CAP-TAMR",
+    group: "Marvel",
+    img: "img/Cap.png"
+  },
+  {
+    name: "Cyborg",
+    number: "800-666-CYNG",
+    group: "DC",
+    img: "img/Cyborg.png"
+  },
+  {
+    name: "Aquaman",
+    number: "800-ORD-FISH",
+    group: "DC",
+    img: "img/Aquaman.png"
+  },
+  {
+    name: "Dr. Strange",
+    number: "800-DRS-TRNG",
+    group: "Marvel",
+    img: "img/DrStrange.png"
   }
 ];
 
