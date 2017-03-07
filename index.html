@@ -14,14 +14,33 @@
             <h1 class="display-2">Super Hero Phone Directory</h1>
         </div>
 
+        <button type="button" class="btn" ng-click="newHero = !newHero" ng-show="!newHero">Add New Hero!</button>
+        <form ng-show="newHero" ng-submit="vm.addSuperNew()">
+            <div class="form-group">
+                <label ng-show=newHero for="">Hero Name: <input ng-show=newHero type="text" ng-model="vm.newSuperName" placeholder="Hero's Name"></label>
+            </div>
+            <div class="form-group">
+                <label ng-show=newHero for="">Phone Number: <input ng-show=newHero type="text" ng-model="vm.newSuperNumber" placeholder="Hero's Phone Number"></label>
+            </div>
+            <div class="form-group">
+                <label ng-show=newHero for="">Group: <input ng-show=newHero type="text" ng-model="vm.newSuperGroup" placeholder="Marvel/DC or Other"></label>
+            </div>
+            <div class="form-group">
+                <label ng-show=newHero for="">Image: <input ng-show=newHero type="text" ng-model="vm.newSuperImg" placeholder="Hero Image"></label>
+            </div>
+            <br>
+            <button type="submit" class="btn" ng-click="newHero = !newHero">Add New Hero</button>
+        </form>
+
         <form>
             <div class="form-group container">
-                <label for="searchBar">Search: <input class="form-control" id="searchBar" ng-model="searchText"></label>
+                <label for="searchBar">Search By Name: <input class="form-control" id="searchBar" type="text" ng-model="searchText"></label>
+                <label >Limit to # of Heros: <input class="form-control" type="integer" ng-model="limit"></label>
             </div>
         </form>
 
 
-        <div class="{{super.group}} jumbotron" ng-repeat="super in vm.supers | filter: searchText ">
+        <div class="{{super.group}} jumbotron" ng-repeat="super in vm.supers | filter: searchText | limitTo: limit ">
             <h2 class="display-4">{{super.name}}</h2>
             <p class="lead">Phone Number: 1-{{super.number}}</p>
 
@@ -44,25 +63,6 @@
             </form>
 
         </div>
-
-
-        <button type="button" class="btn" ng-click="newHero = !newHero" ng-show="!newHero">Add New Hero!</button>
-        <form ng-show="newHero" ng-submit="vm.addSuperNew()">
-            <div class="form-group">
-                <label ng-show=newHero for="">Hero Name: <input ng-show=newHero type="text" ng-model="vm.newSuperName" placeholder="Hero's Name"></label>
-            </div>
-            <div class="form-group">
-                <label ng-show=newHero for="">Phone Number: <input ng-show=newHero type="text" ng-model="vm.newSuperNumber" placeholder="Hero's Phone Number"></label>
-            </div>
-            <div class="form-group">
-                <label ng-show=newHero for="">Group: <input ng-show=newHero type="text" ng-model="vm.newSuperGroup" placeholder="Marvel/DC or Other"></label>
-            </div>
-            <div class="form-group">
-                <label ng-show=newHero for="">Image: <input ng-show=newHero type="text" ng-model="vm.newSuperImg" placeholder="Hero Image"></label>
-            </div>
-            <br>
-            <button type="submit" class="btn" ng-click="newHero = !newHero">Add New Hero</button>
-        </form>
 
         <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
