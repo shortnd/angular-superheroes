@@ -49,16 +49,16 @@
         <button type="button" class="btn" ng-click="newHero = !newHero" ng-show="!newHero">Add New Hero!</button>
         <form ng-show="newHero" ng-submit="vm.addSuperNew()">
             <div class="form-group">
-                <label ng-show=newHero for="">Hero Name: <input ng-show=newHero type="text" ng-model="vm.newSuperName"></label>
+                <label ng-show=newHero for="">Hero Name: <input ng-show=newHero type="text" ng-model="vm.newSuperName" placeholder="Hero's Name"></label>
             </div>
             <div class="form-group">
-                <label ng-show=newHero for="">Phone Number: <input ng-show=newHero type="text" ng-model="vm.newSuperNumber"></label>
+                <label ng-show=newHero for="">Phone Number: <input ng-show=newHero type="text" ng-model="vm.newSuperNumber" placeholder="Hero's Phone Number"></label>
             </div>
             <div class="form-group">
-                <label ng-show=newHero for="">Group: <input ng-show=newHero type="text" ng-model="vm.newSuperGroup"></label>
+                <label ng-show=newHero for="">Group: <input ng-show=newHero type="text" ng-model="vm.newSuperGroup" placeholder="Marvel/DC or Other"></label>
             </div>
             <div class="form-group">
-                <label ng-show=newHero for="">Image: <input ng-show=newHero type="text" ng-model="vm.newSuperImg"></label>
+                <label ng-show=newHero for="">Image: <input ng-show=newHero type="text" ng-model="vm.newSuperImg" placeholder="Hero Image"></label>
             </div>
             <br>
             <button type="submit" class="btn" ng-click="newHero = !newHero">Add New Hero</button>
